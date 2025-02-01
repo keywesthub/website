@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyWest Hub - Register</title>
+    <style>
+        /* Global settings */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(0deg, rgb(10, 111, 136), black);
+            background-size: 400% 400%;
+            animation: gradient-animation 10s infinite ease-in-out;
+            color: #333;
+        }
+
+        @keyframes gradient-animation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Header */
+        h1 {
+            text-align: center;
+            color: #025a8d;
+            margin-top: 50px;
+        }
+
+        /* Form */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        input {
+            margin: 10px;
+            padding: 10px;
+            width: 250px;
+            font-size: 1em;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #025a8d;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: white;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #025a8d;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>KeyWest Hub Register</h1>
+
+    <form id="signupForm">
+        <input type="text" id="signupUsername" placeholder="Nom d'utilisateur" required><br>
+        <input type="password" id="signupPassword" placeholder="Mot de passe" required><br>
+        <button type="submit">S'inscrire</button>
+    </form>
+
+    <a href="index.html">Retour à la connexion</a>
+    <a href="">        </a>
+
+    <script src="script.js"></script>
+    <script type="text/javascript" src="https://click123.ca/dist/js/snow.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<div class="main-content">
+    <h1>FiveM Scrapper</h1>
+    <h4>With this tool , you can create your own database of any FiveM Server just by his CFX CODE ! (You can get it here <a href="https://servers.fivem.net/">servers.fivem.net</a>).</h4>
+    
+    <h3>CFX CODE :</H3>
+    <input type="text" id="code_cfx" style="width: 300px;" placeholder="Enter CFX CODE Here"><br>
+    
+    <button id="scrap-button">Scrap ! 🧷</button>
+    <button onclick="window.location.href='staff.html'">Back 🏠</button>
+    
+    <textarea id="result-console" readonly style="width: 100%; height: 300px; margin-top: 10px;"></textarea>
+    <h2>FiveM Databases</h2>
+    
+    <script>
+        document.getElementById('scrap-button').addEventListener('click', function() {
+            const codeCfx = document.getElementById('code_cfx').value;
+            const resultConsole = document.getElementById('result-console');
+
+            if (codeCfx) {
+                const url = `https://servers-frontend.fivem.net/api/servers/single/${codeCfx}`;
+                
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error("Network response was not ok");
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        resultConsole.value = `The server with CFX Code : ${codeCfx} were scrapped successfully. Link : ${url}\nData : ${JSON.stringify(data, null, 2)}`;
+                    })
+                    .catch(error => {
+                        resultConsole.value = `An Error Here : ${error.message}`;
+                    });
+            } else {
+                alert("Error : Please provide a valide CFX CODE.");
+            }
+        });
+    </script>

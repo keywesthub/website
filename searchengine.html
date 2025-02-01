@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="assets/img/database.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyWest Hub - Search Engine</title>
+    <!-- Inclusion des fichiers data.js et data2.js -->
+    <script src="compressed.js"></script> <!-- Inclusion des données -->    
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css'>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Raleway, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(90deg, #dcdbf7, #08b1c7);
+            color: #333;
+            font-family: 'Raleway', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            position: relative;
+        }
+
+        .dashboard {
+            width: 100%;
+            max-width: 1400px;
+            padding: 40px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0px 0px 24px rgba(92, 86, 150, 0.5);
+        }
+
+        .navbar {
+            background: rgba(93, 84, 164, 0.9);
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            align-items: center;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .navbar .menu a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar .menu a:hover {
+            background-color: #6A679E;
+        }
+
+        .dashboard-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .dashboard-header h1 {
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        .dashboard-header p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .main-content {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .main-content h1 {
+            font-size: 2rem;
+            color: #333;
+        }
+
+        .main-content input, .main-content button, .main-content textarea {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .main-content button {
+            cursor: pointer;
+            background-color: #09cfcf;
+            border: none;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        .main-content button:hover {
+            background-color: #079b9b;
+        }
+
+        .main-content textarea {
+            width: 100%;
+            height: 300px;
+            margin-top: 10px;
+            resize: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="dashboard">
+        <!-- Navigation -->
+        <div class="navbar">
+            <h1 class="logo" href="tools.html">KeyWest Tools</h1>
+            <div class="menu">
+                <a href="#">Compte <i class="fas fa-user"></i></a>
+                <a href="#">Paramètres <i class="fas fa-cogs"></i></a>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="dashboard-header">
+            <h1>Discord & FiveM Search Engine</h1>
+            <p>Avec cet outil, cherchez dans nos millions d'utilisateurs enregistrés dans nos databases.</p>
+        </div>
+
+        <div class="main-content">
+            <h3>Discord ID :</h3>
+            <input type="text" id="discordid" style="width: 300px;" placeholder="Entrez l'ID Discord ici"><br>
+            <button id="searchDiscordId">Chercher 🔎</button>
+            <button id="reloadButton ">Reload 🔄</button>
+            <button id="loadMoreButton">Charger Plus ➕</button>
+            <button onclick="window.location.href='tools.html'">Retour 🏠</button>
+
+            <textarea id="result-console" readonly></textarea>
+            <h2><span style="color: black;">Source :</span> <span style="color: black;">KeyWest Hub Databases</span></h2>
+            <h2><span style="color: blue;">Databases :</span> <span style="color: green;">+1,1 Millions Users</span></h2>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('searchDiscordId').addEventListener('click', function() {
+            const discordId = document.getElementById('discordid').value.trim();
+
+            if (discordId === "") {
+                document.getElementById('result-console').value = "Veuillez entrer un ID Discord.";
+                return;
+            }
+
+            // Ajouter le préfixe 'discord:' pour correspondre aux données JSON
+            const formattedDiscordId = `discord:${discordId}`;
+
+            // Chercher l'ID Discord dans les identifiants de chaque utilisateur
+            const result = userData.find(user => 
+                user.identifiers.includes(formattedDiscordId)
+            );
+
+            if (result) {
+                // Affichage des résultats
+                const identifiers = result.identifiers.join("\n"); // Afficher tous les identifiants
+                document.getElementById('result-console').value = 
+                    `Nom : ${result.name}\nPing : ${result.ping}\nID Interne : ${result.id}\nIdentifiants :\n${identifiers}`;
+            } else {
+                document.getElementById('result-console').value = "Aucun résultat trouvé.";
+            }
+        });
+    </script>
+    
+    <script>
+        // Reload Button
+        document.getElementById('reloadButton').addEventListener('click', () => {
+            localStorage.setItem('showReloadMessage', 'true'); // Stocke une clé pour afficher le message après le rechargement
+            location.reload(); // Recharge la page
+        });
+
+        // Charger Plus Button
+        document.getElementById('loadMoreButton').addEventListener('click', () => {
+            // Affiche la notification initiale
+            alert("Chargement du stockage supplémentaire (500k users) en cours...");
+            
+            // Stocke une clé pour afficher le message après le rechargement
+            localStorage.setItem('showLoadMoreMessage', 'true');
+            location.reload(); // Recharge la page
+        });
+
+        // Affichage des messages après rechargement
+        window.addEventListener('load', () => {
+            if (localStorage.getItem('showReloadMessage') === 'true') {
+                alert("Reload Réussi !");
+                localStorage.removeItem('showReloadMessage'); // Supprime la clé pour éviter un affichage répété
+            }
+
+            if (localStorage.getItem('showLoadMoreMessage') === 'true') {
+                alert("Stockage chargé !");
+                localStorage.removeItem('showLoadMoreMessage'); // Supprime la clé pour éviter un affichage répété
+            }
+        });
+    </script>
+
+</body>
+</html>

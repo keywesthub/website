@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="assets/img/shop.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyWest Hub - Offres</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(90deg, #dcdbf7, #08b1c7);
+            color: #333;
+            font-family: 'Raleway', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            position: relative;
+        }
+
+        .screen {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            height: auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0px 0px 24px rgba(92, 86, 150, 0.5);
+            padding: 40px;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .screen__background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+
+        .screen__background__shape {
+            position: absolute;
+            transform: rotate(45deg);
+        }
+
+        .screen__background__shape1 {
+            height: 520px;
+            width: 520px;
+            background: #FFF;
+            top: -50px;
+            right: 120px;
+            border-radius: 0 72px 0 0;
+        }
+
+        .screen__background__shape2 {
+            height: 220px;
+            width: 220px;
+            background: #6C63AC;
+            top: -172px;
+            right: 0;
+            border-radius: 32px;
+        }
+
+        .screen__background__shape3 {
+            height: 540px;
+            width: 190px;
+            background: linear-gradient(270deg, #5D54A4, #6A679E);
+            top: -24px;
+            right: 0;
+            border-radius: 32px;
+        }
+
+        .screen__background__shape4 {
+            height: 400px;
+            width: 200px;
+            background: #7E7BB9;
+            top: 420px;
+            right: 50px;
+            border-radius: 60px;
+        }
+
+        .navbar {
+            background: rgba(93, 84, 164, 0.8);
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            align-items: center;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #6A679E;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .user-menu,
+        .settings-menu {
+            position: relative;
+        }
+
+        .user-dropdown,
+        .settings-dropdown {
+            display: none;
+            position: absolute;
+            top: 40px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            right: 0;
+            min-width: 200px;
+            padding: 10px 0;
+            z-index: 1;
+        }
+
+        .user-dropdown a,
+        .settings-dropdown a {
+            color: #333;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .user-dropdown a:hover,
+        .settings-dropdown a:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Offer Cards */
+        .offers-container {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .offer-card {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            flex: 1;
+            min-width: 250px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .offer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .offer-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #8E2DE2, #4A00E0);
+        }
+
+        .offer-card h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .offer-card p {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .offer-card .price {
+            font-size: 28px;
+            font-weight: 600;
+            color: #4A00E0;
+            margin-bottom: 20px;
+        }
+
+        .offer-card button {
+            background: linear-gradient(90deg, #8E2DE2, #4A00E0);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+
+        .offer-card button:hover {
+            background: linear-gradient(90deg, #4A00E0, #8E2DE2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .offers-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            header h1 {
+                font-size: 30px;
+            }
+
+            header p {
+                font-size: 16px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="screen">
+        <div class="screen__background">
+            <div class="screen__background__shape screen__background__shape1"></div>
+            <div class="screen__background__shape screen__background__shape2"></div>
+            <div class="screen__background__shape screen__background__shape3"></div>
+            <div class="screen__background__shape screen__background__shape4"></div>
+        </div>
+
+        <div class="screen__content">
+            <!-- Navigation Menu -->
+            <div class="navbar">
+                <div class="logo">KeyWest Hub</div>
+                <div class="menu">
+                    <div class="user-menu">
+                        <a href="javascript:void(0)">Compte <i class="fas fa-user"></i></a>
+                        <div class="user-dropdown">
+                            <a href="index.html">Se Déconnecter</a>
+                        </div>
+                    </div>
+                    <div class="settings-menu">
+                        <a href="javascript:void(0)">Paramètres <i class="fas fa-cogs"></i></a>
+                        <div class="settings-dropdown">
+                            <a href="#">Gestion du Compte</a>
+                            <a href="#">Préférences</a>
+                        </div>
+                    </div>
+                    <div class="settings-menu">
+                        <a href="javascript:void(0)">Menus <i class="fas fa-home"></i></a>
+                        <div class="settings-dropdown">
+                            <a href="home.html">Retour Accueil</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <h1>Découvrez Nos Packs Addons</h1>
+                <p>Choisissez le pack qui vous convient pour démarrer et augmenter votre potentiel !</p>
+                
+                <div class="offers-container">
+                    <div class="offer-card">
+                        <h2>Addons - Starter</h2>
+                        <p>Pack Contenant :</p>
+                    <li><strong>1 Outil au choix</strong></li>
+                        <li><strong>Badge Discord</strong></li>
+                        <li><strong>Accès site version normal</strong></li>
+                        <div class="price">3,99€</div>
+                        <button>Acheter</button>
+                    </div>
+                    <div class="offer-card">
+                        <h2>Addons - Argent</h2>
+                        <p>Pack Contenant :</p>
+                        <li><strong>1/4 Accès Discord</strong></li>
+                    <li><strong>2 Outils au choix</strong></li>
+                        <li><strong>Badge Discord</strong></li>
+                        <li><strong>Accès site version argent</strong></li>
+                        <div class="price">8,99€</div>
+                        <button>Acheter</button>
+                    </div>
+                    <div class="offer-card">
+                        <h2>Addons - Gold</h2>
+                        <p>Pack Contenant :</p>
+                        <li><strong>Demi Accès Discord</strong></li>
+                    <li><strong>3 Outils au choix</strong></li>
+                        <li><strong>Badge Discord</strong></li>
+                        <li><strong>Accès site version gold</strong></li>
+                        <div class="price">17,99€</div>
+                        <button>Acheter</button>
+                    </div>
+                    <div class="offer-card">
+                        <h2>Addons - Pro</h2>
+                        <p>Pack Contenant :</p>
+                        <li><strong>Full Accès Discord</strong></li>
+                    <li><strong>5 Outils au choix</strong></li>
+                        <li><strong>Badge Discord</strong></li>
+                        <li><strong>Accès site version pro</strong></li>
+                        <div class="price">29,99€</div>
+                        <button>Acheter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Ajouter l'interaction pour afficher les menus déroulants au clic
+        document.querySelectorAll('.user-menu > a, .settings-menu > a').forEach(function(menuLink) {
+            menuLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                const dropdown = this.nextElementSibling;
+
+                // Fermer tous les menus
+                document.querySelectorAll('.user-dropdown, .settings-dropdown').forEach(function(drop) {
+                    if (drop !== dropdown) {
+                        drop.style.display = 'none';
+                    }
+                });
+
+                // Afficher ou masquer le menu cliqué
+                if (dropdown.style.display === 'block') {
+                    dropdown.style.display = 'none';
+                } else {
+                    dropdown.style.display = 'block';
+                }
+            });
+        });
+
+        // Fermer les menus si on clique en dehors
+        document.addEventListener('click', function(event) {
+            const isClickInside = event.target.closest('.navbar');
+            if (!isClickInside) {
+                document.querySelectorAll('.user-dropdown, .settings-dropdown').forEach(function(drop) {
+                    drop.style.display = 'none';
+                });
+            }
+        });
+    </script>
+
+</body>
+
+</html>

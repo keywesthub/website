@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="assets/img/tools.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyWest Hub - Nos Outils</title>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css'>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Raleway, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(90deg, #dcdbf7, #08b1c7);
+            color: #333;
+            font-family: 'Raleway', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            position: relative;
+        }
+
+        .dashboard {
+            width: 100%;
+            max-width: 1400px;
+            padding: 40px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0px 0px 24px rgba(92, 86, 150, 0.5);
+        }
+
+        .navbar {
+            background: rgba(93, 84, 164, 0.9);
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            align-items: center;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .navbar .menu a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar .menu a:hover {
+            background-color: #6A679E;
+        }
+
+        .dashboard-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .dashboard-header h1 {
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        .dashboard-header p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #5D54A4, #09cfcf);
+            color: white;
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .card i {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .card a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .card a:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+        
+        .menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .user-menu, .settings-menu {
+            position: relative;
+        }
+
+        .user-dropdown, .settings-dropdown {
+            display: none;
+            position: absolute;
+            top: 40px;
+            background: #635e5e;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            right: 0;
+            min-width: 200px;
+            padding: 10px 0;
+            z-index: 1;
+        }
+
+        .user-dropdown a, .settings-dropdown a {
+            color: #333;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .user-dropdown a:hover, .settings-dropdown a:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .main-content button {
+            cursor: pointer;
+            background-color: #09cfcf;
+            border: none;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        .main-content button:hover {
+            background-color: #079b9b;
+        }
+        
+        .main-content {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .main-content h1 {
+            font-size: 2rem;
+            color: #333;
+        }
+
+        .main-content input, .main-content button, .main-content textarea {
+            padding: 10px;
+            margin: 18px 0;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard">
+        <!-- Navigation Menu -->
+        <div class="navbar">
+            <div class="logo">KeyWest Hub</div>
+            <div class="menu">
+                <div class="user-menu">
+                    <a href="javascript:void(0)">Compte <i class="fas fa-user"></i></a>
+                    <div class="user-dropdown">
+                        <a href="index.html">Se Déconnecter</a>
+                    </div>
+                </div>
+                <div class="settings-menu">
+                    <a href="javascript:void(0)">Paramètres <i class="fas fa-cogs"></i></a>
+                    <div class="settings-dropdown">
+                        <a href="#">Gestion du Compte</a>
+                        <a href="#">Préférences</a>
+                    </div>
+                </div>
+                <div class="settings-menu">
+                    <a href="javascript:void(0)">Menus <i class="fas fa-home"></i></a>
+                    <div class="settings-dropdown">
+                        <a href="home.html">Retour Accueil</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="dashboard-header">
+            <h1>Bienvenue sur KeyWest Hub</h1>
+            <p>Sélectionnez une option pour continuer :</p>
+        </div>
+
+        <!-- Dashboard Cards -->
+        <div class="cards-container">
+            <div class="card">
+                <i class="fas fa-robot"></i>
+                <h2>Discord Bot Stealer</h2>
+                <a href="bsteal.html">Accéder</a>
+            </div>
+            <div class="card">
+                <i class="fas fa-database"></i>
+                <h2>FiveM Dumper</h2>
+                <a href="fivemdumper.html">Accéder</a>
+            </div>
+            <div class="card">
+                <i class="fas fa-search"></i>
+                <h2>Database Searcher</h2>
+                <a href="searchengine.html">Accéder</a>
+            </div>
+            <div class="card">
+                <i class="fas fa-gamepad"></i>
+                <h2>Games Cracker</h2>
+                <a href="games.html">Accéder</a>
+            </div>            
+        </div>
+    </div>
+    
+    <script>
+        // Ajouter l'interaction pour afficher les menus déroulants au clic
+        document.querySelectorAll('.user-menu > a, .settings-menu > a').forEach(function(menuLink) {
+            menuLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                const dropdown = this.nextElementSibling;
+
+                // Fermer tous les menus
+                document.querySelectorAll('.user-dropdown, .settings-dropdown').forEach(function(drop) {
+                    if (drop !== dropdown) {
+                        drop.style.display = 'none';
+                    }
+                });
+
+                // Afficher ou masquer le menu cliqué
+                if (dropdown.style.display === 'block') {
+                    dropdown.style.display = 'none';
+                } else {
+                    dropdown.style.display = 'block';
+                }
+            });
+        });
+
+        // Fermer les menus si on clique en dehors
+        document.addEventListener('click', function(event) {
+            const isClickInside = event.target.closest('.navbar');
+            if (!isClickInside) {
+                document.querySelectorAll('.user-dropdown, .settings-dropdown').forEach(function(drop) {
+                    drop.style.display = 'none';
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>

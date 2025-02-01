@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="assets/img/stealer.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyWest Hub - Games Cracker</title>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css'>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Raleway, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(90deg, #dcdbf7, #08b1c7);
+            color: #333;
+            font-family: 'Raleway', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            position: relative;
+        }
+
+        .dashboard {
+            width: 100%;
+            max-width: 1400px;
+            padding: 40px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0px 0px 24px rgba(92, 86, 150, 0.5);
+        }
+
+        .navbar {
+            background: rgba(93, 84, 164, 0.9);
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            align-items: center;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .navbar .menu a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar .menu a:hover {
+            background-color: #6A679E;
+        }
+
+        .dashboard-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .dashboard-header h1 {
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        .dashboard-header p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .catalogue-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .game-card {
+            background: linear-gradient(135deg, #08013f, #58030a);
+            color: white;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .game-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .game-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .game-card p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+        
+        .main-content {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .main-content h1 {
+            font-size: 2rem;
+            color: #333;
+        }
+
+        .main-content input, .main-content button, .main-content textarea {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .main-content button {
+            cursor: pointer;
+            background-color: #09cfcf;
+            border: none;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        .main-content button:hover {
+            background-color: #079b9b;
+        }
+
+        .game-card button {
+            background: #ffffff;
+            color: #5D54A4;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .game-card button:hover {
+            background: rgba(255, 255, 255, 0.7);
+        }
+        
+        .search-bar {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+
+    .search-bar input {
+        width: 60%;
+        max-width: 600px;
+        padding: 10px;
+        border: 2px solid #5D54A4;
+        border-radius: 5px 0 0 5px;
+        font-size: 1rem;
+        outline: none;
+    }
+
+    .search-bar button {
+        background: #5D54A4;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 0 5px 5px 0;
+        transition: background-color 0.3s;
+    }
+
+    .search-bar button:hover {
+        background: #6A679E;
+    }
+    
+    .game-card img {
+    width: 100%; /* Ajuste la largeur à celle du conteneur */
+    max-height: 200px; /* Limite la hauteur de l'image */
+    object-fit: contain; /* Garde l'image entière sans la déformer */
+    display: block; /* Supprime les espaces sous l'image */
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Navigation -->
+        <div class="navbar">
+            <h1 class="logo">KeyWest Games</h1>
+            <div class="menu">
+                <a href="#">Compte <i class="fas fa-user"></i></a>
+                <a href="#">Paramètres <i class="fas fa-cogs"></i></a>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="dashboard-header">
+            <h1>Catalogue de Jeux</h1>
+            <p>Découvrez et téléchargez vos jeux préférés !</p>
+        </div>
+        
+        <div class="main-content">
+            <button onclick="window.location.href='tools.html'">Retour 🏠</button>
+        </div>
+        
+        <!-- Barre de recherche -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Recherchez un jeu par nom...">
+            <button onclick="searchGames()">Rechercher</button>
+        </div>
+
+        <!-- Catalogue -->
+        <div class="catalogue-container" id="catalogue">
+            <div class="game-card">
+                <i class="fas fa-gamepad"></i>
+                <h2>ONLY UP</h2>
+                <img src="https://th.bing.com/th/id/OIP.y3KFcj1mB-K37MLTA7a-QwHaEP?rs=1&pid=ImgDetMain" alt="ONLY UP - bannière">
+                <button onclick="window.location.href='https://mega.nz/folder/gzkjzD7J#aOn7Vk-efncO5cEFfPbHIA'">Télécharger</button>
+            </div>
+            <div class="game-card">
+                <i class="fas fa-gamepad"></i>
+                <h2>GTA 5</h2>
+                <img src="https://th.bing.com/th/id/OIP.UBqz6wwLXhJPR0ipGhpfQQHaEK?rs=1&pid=ImgDetMain" alt="GTA 5 - bannière">
+                <button onclick="window.location.href='https://gofile.io/d/HrDpGJ'">Télécharger</button>
+            </div>
+            <div class="game-card">
+                <i class="fas fa-gamepad"></i>
+                <h2>FORZA HORIZON 5</h2>
+                <img src="https://th.bing.com/th/id/OIP.J9n1mv-fFNlBRqLiG9RbkQHaEK?rs=1&pid=ImgDetMain" alt="FORZA HORIZON 5 - bannière">
+                <button onclick="window.location.href='https://gofile.io/d/h24cYz'">Télécharger</button>
+            </div>            
+            <div class="game-card">
+                <i class="fas fa-gamepad"></i>
+                <h2>AMONG US</h2>
+                <img src="https://th.bing.com/th/id/R.3fac17e8bb45d81ec9b2c24655758075?rik=oVqnWYa2j4vGLQ&pid=ImgRaw&r=0" alt="AMONG US - bannière">
+                <button onclick="window.location.href='https://mega.nz/folder/Mbx1BZJS#GZbeIUwnnWSH_RWTCMsYVA'">Télécharger</button>
+            </div>
+            <div class="game-card">
+                <i class="fas fa-gamepad"></i>
+                <h2>FARCRY 5</h2>
+                <img src="https://th.bing.com/th/id/OIP._urVi05NtSRaXah9ghBqxQHaEK?rs=1&pid=ImgDetMain" alt="FARCRY 5 - bannière">
+                <button onclick="window.location.href='https://gofile.io/d/NZzCwE'">Télécharger</button>
+            </div>
+            <div class="game-card">
+                <i class="fas fa-gamepad"></i>
+                <h2>FARCRY 6 ALL DLC</h2>
+                <img src="https://th.bing.com/th/id/R.1aab3d92f2333e2cbb180df006b0ea2e?rik=I6S3GTXcb7ZuXA&pid=ImgRaw&r=0" alt="FARCRY 6 ALL DLC - bannière">
+                <button onclick="window.location.href='https://gofile.io/d/YeKsV5'">Télécharger</button>
+            </div>
+            <div class="game-card">
+                <i class="fas fa-gamepad"></i>
+                <h2>FARMING SIMULATOR 22 PLATINIUM EDITION ALL DLC</h2>
+                <img src="https://cdn1.epicgames.com/offer/308cbcb523ad4937a8c509d10e9b688a/EGS_FarmingSimulator22PremiumEdition_GIANTSSoftwareGmbH_Editions_S1_2560x1440-9e362fc2fc462e6fe8a0534624f03139" alt="FARMING SIMULATOR 22 PLATINIUM EDITION ALL DLC - bannière">
+                <button onclick="window.location.href='https://gofile.io/d/Vxyy9h'">Télécharger</button>
+            </div>
+            <div class="game-card">
+                <i class="fas fa-gamepad"></i>
+                <h2>CITIES SKYLINE</h2>
+                <img src="https://cdn.akamai.steamstatic.com/steam/apps/255710/header.jpg" alt="CITIES SKYLINE - bannière">
+                <button onclick="window.location.href='https://drive.google.com/drive/folders/1MjAuajQ1I0UDZqfmC22O2ibsU0uiCe3_'">Télécharger</button>
+            </div>
+            <div class="game-card">
+                <i class="fas fa-gamepad"></i>
+                <h2>GTA SAN ANDREAS</h2>
+                <img src="https://cdn.akamai.steamstatic.com/steam/apps/12120/header.jpg" alt="GTA SAN ANDREAS - bannière">
+                <button onclick="window.location.href='https://mega.nz/file/OstQwaTC#3puGzivPG7fPBXRJyGEBuxi_zC155wSXpNNepFWDrYA'">Télécharger</button>
+            </div>
+            <div class="game-card">
+                <i class="fas fa-gamepad"></i>
+                <h2>GTA THE TRILOGY THE DEFINITIVE EDITION</h2>
+                <img src="https://rockstaractu.com/wp-content/uploads/2021/11/Banniere-darticles-GTA-Trilogy-The-Definitive-Edition-Image-7-1280p-x-720p-Picture-by-Rockstar-Games-GTA-Vice-City-GTA-3-GTA-San-Andreas.jpg" alt="GTA THE TRILOGY THE DEFINITIVE EDITION - bannière">
+                <button onclick="window.location.href='https://gofile.io/d/6ObrdF'">Télécharger</button>
+            </div>
+            <div class="game-card">
+                <i class="fas fa-gamepad"></i>
+                <h2>GTA 4 THE COMPLETE EDITION</h2>
+                <img src="https://cdn.akamai.steamstatic.com/steam/apps/12210/header.jpg" alt="GTA 4 THE COMPLETE EDITION - bannière">
+                <button onclick="window.location.href='https://gofile.io/d/34Cp9A'">Télécharger</button>
+            </div>
+            <div class="game-card">
+                <i class="fas fa-gamepad"></i>
+                <h2>WATCH DOGS 2</h2>
+                <img src="https://cdn1.epicgames.com/angelonia/offer/WD2-STD-Capsule-1920x1080-2a2ed8c8265ab31156be8ab48a93dc212d5c7095.jpg" alt="WATCH DOGS 2 - bannière">
+                <button onclick="window.location.href='https://gofile.io/d/hR0OMe'">Télécharger</button>
+            </div>
+            <div class="game-card">
+                <i class="fas fa-gamepad"></i>
+                <h2>EURO TRUCK SIMULATOR 2 ALL DLC</h2>
+                <img src="https://cdn.akamai.steamstatic.com/steam/apps/227300/header.jpg" alt="EURO TRUCK SIMULATOR 2 ALL DLC - bannière">
+                <button onclick="window.location.href='https://gofile.io/d/u5RE5v'">Télécharger</button>
+            </div>
+            <div class="game-card">
+                <i class="fas fa-gamepad"></i>
+                <h2>ASSASSINS CREED ORIGINS</h2>
+                <img src="https://cdn.akamai.steamstatic.com/steam/apps/582160/header.jpg" alt="ASSASSINS CREED ORIGINS - bannière">
+                <button onclick="window.location.href='https://gofile.io/d/xxdxwm'">Télécharger</button>
+            </div>
+            <div class="game-card">
+                <i class="fas fa-gamepad"></i>
+                <h2>RED DEAD REDEMPTION 2</h2>
+                <img src="https://cdn.akamai.steamstatic.com/steam/apps/1174180/header.jpg" alt="RED DEAD REDEMPTION 2 - bannière">
+                <button onclick="window.location.href='https://gofile.io/d/DYKQ22'">Télécharger</button>
+            </div>
+            <div class="game-card">
+                <i class="fas fa-gamepad"></i>
+                <h2>MAFIA DEFINITIVE EDITION</h2>
+                <img src="https://cdn.akamai.steamstatic.com/steam/apps/1030840/header.jpg" alt="MAFIA DEFINITIVE EDITION - bannière">
+                <button onclick="window.location.href='https://gofile.io/d/8104u0'">Télécharger</button>
+            </div>
+            <div class="game-card">
+                <i class="fas fa-gamepad"></i>
+                <h2>HITMAN 2</h2>
+                <img src="https://cdn.akamai.steamstatic.com/steam/apps/863550/header.jpg" alt="HITMAN 2 - bannière">
+                <button onclick="window.location.href='https://gofile.io/d/BeqsHh'">Télécharger</button>
+            </div>
+            <div class="game-card">
+                <i class="fas fa-gamepad"></i>
+                <h2>MARVEL SPIDER MAN REMASTERED</h2>
+                <img src="https://cdn.akamai.steamstatic.com/steam/apps/1817070/header.jpg" alt="MARVEL SPIDER MAN REMASTERED - bannière">
+                <button onclick="window.location.href='https://gofile.io/d/7iofgs'">Télécharger</button>
+            </div>
+            <div class="game-card">
+                <i class="fas fa-gamepad"></i>
+                <h2>ESCAPE THE BACKROOMS</h2>
+                <img src="https://cdn.akamai.steamstatic.com/steam/apps/1943950/header.jpg" alt="ESCAPE THE BACKROOMS - bannière">
+                <button onclick="window.location.href='https://gofile.io/d/S8PXZt'">Télécharger</button>
+            </div>
+            <div class="game-card">
+                <i class="fas fa-gamepad"></i>
+                <h2>PAYDAY 2</h2>
+                <img src="https://cdn.akamai.steamstatic.com/steam/apps/218620/header.jpg" alt="PAYDAY 2 - bannière">
+                <button onclick="window.location.href='https://gofile.io/d/SzozDk'">Télécharger</button>
+            </div>
+            <div class="game-card">
+                <i class="fas fa-gamepad"></i>
+                <h2>HOGWARTS LEGACY</h2>
+                <img src="https://cdn.akamai.steamstatic.com/steam/apps/990080/header.jpg" alt="HOGWARTS LEGACY - bannière">
+                <button onclick="window.location.href='https://gofile.io/d/8Nbesc'">Télécharger</button>
+            </div>
+            <div class="game-card">
+                <i class="fas fa-gamepad"></i>
+                <h2>ASSASSINS CREED ODYSSEY</h2>
+                <img src="https://cdn.akamai.steamstatic.com/steam/apps/812140/header.jpg" alt="ASSASSINS CREED ODYSSEY - bannière">
+                <button onclick="window.location.href='https://gofile.io/d/L5kc5e'">Télécharger</button>
+            </div>
+            <div class="game-card">
+                <i class="fas fa-gamepad"></i>
+                <h2>CALL OF DUTY BLACK OPS 3</h2>
+                <img src="https://cdn.akamai.steamstatic.com/steam/apps/311210/header.jpg" alt="CALL OF DUTY BLACK OPS 3 - bannière">
+                <button onclick="window.location.href='https://gofile.io/d/U1v38O'">Télécharger</button>
+            </div>
+            <div class="game-card">
+                <i class="fas fa-gamepad"></i>
+                <h2>RESIDENT EVIL 4 REMAKE</h2>
+                <img src="https://cdn.akamai.steamstatic.com/steam/apps/2050650/header.jpg" alt="RESIDENT EVIL 4 REMAKE - bannière">
+                <button onclick="window.location.href='https://gofile.io/d/qTTYBp'">Télécharger</button>
+            </div>
+            <div class="game-card">
+                <i class="fas fa-gamepad"></i>
+                <h2>FIFA 23</h2>
+                <img src="https://buycheapplaycheap.com/wp-content/uploads/2022/09/FIFA-23-Buy-Cheap-Play-Cheap-Social.jpg" alt="FIFA 23 - bannière">
+                <button onclick="window.location.href='https://gofile.io/d/EAUxVq'">Télécharger</button>
+            </div>
+            <div class="game-card">
+                <i class="fas fa-gamepad"></i>
+                <h2>ASSETTO CORSA</h2>
+                <img src="https://cdn.akamai.steamstatic.com/steam/apps/244210/header.jpg" alt="ASSETTO CORSA - bannière">
+                <button onclick="window.location.href='https://gofile.io/d/q77cP1'">Télécharger</button>
+            </div>
+            <div class="game-card">
+                <i class="fas fa-gamepad"></i>
+                <h2>SUPERMARKET SIMULATOR</h2>
+                <img src="https://jeuxx-gratuit.fr/wp-content/uploads/2024/03/Supermarket-Simulator.jpg" alt="SUPERMARKET SIMULATOR - bannière">
+                <button onclick="window.location.href='https://mega.nz/folder/dikGnRRJ#paT9PQC8ZdWZkVgSQaT-6Q'">Télécharger</button>
+            </div>
+            <div class="game-card">
+                <i class="fas fa-gamepad"></i>
+                <h2>JUST CAUSE 4 COMPLETE EDITION</h2>
+                <img src="https://cost.games/gimg/208/1199/header.jpg" alt="JUST CAUSE 4 COMPLETE EDITION - bannière">
+                <button onclick="window.location.href='https://gofile.io/d/IQNbT8'">Télécharger</button>
+            </div>
+            <div class="game-card">
+                <i class="fas fa-gamepad"></i>
+                <h2>GROCERY STORE SIMULATOR</h2>
+                <img src="https://i123.fastpic.org/big/2024/0627/48/e2fb84fdcc6787c89d5df838c48ed148.jpg" alt="GROCERY STORE SIMULATOR - bannière">
+                <button onclick="window.location.href='https://mega.nz/folder/ti8R2QxR#l-EIpisZ2lLgGrTAcaJgcA'">Télécharger</button>
+            </div>
+            <div class="game-card">
+                <i class="fas fa-gamepad"></i>
+                <h2>MICROSOFT FLIGHT SIMULATOR</h2>
+                <img src="https://cdn.akamai.steamstatic.com/steam/apps/1250410/header.jpg" alt="MICROSOFT FLIGHT SIMULATOR - bannière">
+                <button onclick="window.location.href='https://gofile.io/d/Xkcjom'">Télécharger</button>
+            </div>                        
+            
+            </div>            
+            <!-- Ajoutez autant de jeux que vous voulez -->
+        </div>
+    </div>
+
+    <script>
+        function searchGames() {
+            const input = document.getElementById('searchInput').value.toLowerCase(); // Récupérer l'input et le convertir en minuscule
+            const games = document.querySelectorAll('.game-card'); // Sélectionner toutes les cartes de jeu
+    
+            // Crée une version "simplifiée" de l'input, qui ignore les espaces et les caractères spéciaux, et la rend plus générique
+            const simplifiedInput = input.replace(/\s+/g, '').replace(/[^a-z0-9]/g, '').toLowerCase();
+    
+            games.forEach(game => {
+                const title = game.querySelector('h2').textContent.toLowerCase();
+                
+                // Crée une version simplifiée du titre pour la comparaison
+                const simplifiedTitle = title.replace(/\s+/g, '').replace(/[^a-z0-9]/g, '').toLowerCase();
+    
+                // Vérifier si l'input simplifié est contenu dans le titre simplifié
+                if (simplifiedTitle.includes(simplifiedInput)) {
+                    game.style.display = 'block';
+                } else {
+                    game.style.display = 'none';
+                }
+            });
+        }
+    </script>
+    
+</body>
+
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="assets/img/gest.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyWest Hub - FiveM Scrapper</title>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css'>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Raleway, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(90deg, #dcdbf7, #08b1c7);
+            color: #333;
+            font-family: 'Raleway', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            position: relative;
+        }
+
+        .dashboard {
+            width: 100%;
+            max-width: 1400px;
+            padding: 40px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0px 0px 24px rgba(92, 86, 150, 0.5);
+        }
+
+        .navbar {
+            background: rgba(93, 84, 164, 0.9);
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            align-items: center;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .navbar .menu a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar .menu a:hover {
+            background-color: #6A679E;
+        }
+
+        .dashboard-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .dashboard-header h1 {
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        .dashboard-header p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .main-content {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .main-content h1 {
+            font-size: 2rem;
+            color: #333;
+        }
+
+        .main-content input, .main-content button, .main-content textarea {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .main-content button {
+            cursor: pointer;
+            background-color: #09cfcf;
+            border: none;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        .main-content button:hover {
+            background-color: #079b9b;
+        }
+
+        .main-content textarea {
+            width: 100%;
+            height: 300px;
+            margin-top: 10px;
+            resize: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="dashboard">
+        <!-- Navigation -->
+        <div class="navbar">
+            <h1 class="logo" href="tools.html">KeyWest Tools</h1>
+            <div class="menu">
+                <a href="#">Compte <i class="fas fa-user"></i></a>
+                <a href="#">Paramètres <i class="fas fa-cogs"></i></a>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="dashboard-header">
+            <h1>FiveM Dumper & Scrapper</h1>
+            <p>Avec cet outil, vous pouvez créer votre propre base de données pour n'importe quel serveur FiveM en utilisant simplement son code CFX !</p>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <h3>Code CFX :</h3>
+            <input type="text" id="code_cfx" style="width: 300px;" placeholder="Entrez le code CFX ici"><br>
+            <button id="scrap-button">Scrapper ici 📌</button>
+            <button onclick="window.location.href='tools.html'">Retour 🏠</button>
+
+            <textarea id="result-console" readonly></textarea>
+            <h2>Source : Fivem Frotend Servers Api</h2>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('scrap-button').addEventListener('click', function() {
+            const codeCfx = document.getElementById('code_cfx').value;
+            const resultConsole = document.getElementById('result-console');
+
+            if (codeCfx) {
+                const url = `https://servers-frontend.fivem.net/api/servers/single/${codeCfx}`;
+                
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error("La réponse du réseau n'était pas correcte");
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        resultConsole.value = `Le serveur avec le code CFX : ${codeCfx} a été scrappé avec succès. Lien : ${url}\nDonnées : ${JSON.stringify(data, null, 2)}`;
+                    })
+                    .catch(error => {
+                        resultConsole.value = `Erreur : ${error.message}`;
+                    });
+            } else {
+                alert("Erreur : Veuillez fournir un code CFX valide.");
+            }
+        });
+    </script>
+
+</body>
+</html>

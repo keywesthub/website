@@ -1,0 +1,37 @@
+[
+    {
+        "username": "Owner",
+        "password": "a",
+        "isStaff": true
+    },
+    {
+        "username": "Lisandru",
+        "password": "Lisandru123",
+        "isStaff": true
+    },
+    {
+        "username": "Kay",
+        "password": "Kay123",
+        "isStaff": true
+    },
+    {
+        "username": "Robocop",
+        "password": "Robocop123",
+        "isStaff": true
+    },
+    {
+        "username": "Loligo",
+        "password": "Loligo123",
+        "isStaff": true
+    },
+    {
+        "username": "Obscurop",
+        "password": "Obscurop123",
+        "isStaff": true
+    },
+    {
+        "username": "Keshmane",
+        "password": "Keshmane123",
+        "isStaff": true
+    }
+]

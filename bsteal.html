@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="assets/img/stealer.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyWest Hub - Discord Bot Stealer</title>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css'>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Raleway, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(90deg, #dcdbf7, #08b1c7);
+            color: #333;
+            font-family: 'Raleway', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            position: relative;
+        }
+
+        .dashboard {
+            width: 100%;
+            max-width: 1400px;
+            padding: 40px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0px 0px 24px rgba(92, 86, 150, 0.5);
+        }
+
+        .navbar {
+            background: rgba(93, 84, 164, 0.9);
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            align-items: center;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .navbar .menu a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar .menu a:hover {
+            background-color: #6A679E;
+        }
+
+        .dashboard-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .dashboard-header h1 {
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        .dashboard-header p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #5D54A4, #09cfcf);
+            color: white;
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .card i {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .card a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .card a:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .invite-section {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .invite-section label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .invite-section .search-bar {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .invite-section button {
+            padding: 10px 20px;
+            background: #09cfcf;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .invite-section button:hover {
+            background: #079b9b;
+        }
+        
+        .main-content {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .main-content h1 {
+            font-size: 2rem;
+            color: #333;
+        }
+
+        .main-content input, .main-content button, .main-content textarea {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .main-content button {
+            cursor: pointer;
+            background-color: #09cfcf;
+            border: none;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        .main-content button:hover {
+            background-color: #079b9b;
+        }
+
+        .main-content textarea {
+            width: 100%;
+            height: 300px;
+            margin-top: 10px;
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard">
+        <!-- Navigation -->
+        <div class="navbar">
+            <h1 class="logo" href="tools.html">KeyWest Tools</h1>
+            <div class="menu">
+                <a href="#">Compte <i class="fas fa-user"></i></a>
+                <a href="#">Paramètres <i class="fas fa-cogs"></i></a>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="dashboard-header">
+            <h1>Discord Bot Stealer</h1>
+            <p>Invitez un bot sur votre serveur juste par son ID !</p>
+        </div>
+        
+        <div class="main-content">
+            <button onclick="window.location.href='tools.html'">Retour 🏠</button>
+        </div>
+
+        <!-- Dashboard Cards -->
+        <div class="cards-container">
+            <div class="card">
+                <i class="fas fa-robot"></i>
+                <h2>Discord Bot Stealer</h2>
+                <div class="invite-section">
+                    <label for="discord-id">Bot ID :</label>
+                    <input type="text" id="discord-id" class="search-bar" placeholder="Discord Bot ID">
+                    <button onclick="generateInviteLink()">Steal</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function generateInviteLink() {
+            const discordId = document.getElementById("discord-id").value;
+            
+            if (discordId) {
+                const inviteLink = `https://discord.com/oauth2/authorize?client_id=${discordId}&permissions=8&integration_type=0&scope=bot`;
+                window.open(inviteLink, '_blank');
+            } else {
+                alert("Veuillez entrer un ID Discord valide.");
+            }
+        }
+    </script>
+
+</body>
+</html>
