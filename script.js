@@ -5,8 +5,8 @@ const users = [
         "isStaff": true
     },
     {
-        "username": "Lisandru",
-        "password": "Lisandru123",
+        "username": "Nathan",
+        "password": "Nathan123",
         "isStaff": true
     },
     {
@@ -15,8 +15,8 @@ const users = [
         "isStaff": true
     },
     {
-        "username": "Robocop",
-        "password": "Robocop123",
+        "username": "nightkikko",
+        "password": "vivelern",
         "isStaff": true
     },
     {
