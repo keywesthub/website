@@ -9,6 +9,11 @@ const users = [
         "password": "Nathan123",
         "isStaff": true
     },
+        {
+        "username": "Elite",
+        "password": "13",
+        "isStaff": true
+    },
     {
         "username": "Kay",
         "password": "Kay123",
